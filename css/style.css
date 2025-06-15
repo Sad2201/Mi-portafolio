@@ -1,0 +1,1408 @@
+/* css/styles.css */
+
+/* ------------------------------------ */
+/* 1. Fuentes Personalizadas (Google Fonts) y Variables CSS */
+/* ------------------------------------ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+    /* Paleta de Colores Moderna y Profesional */
+    --primary-color: #007bff; /* Azul brillante y profesional */
+    --secondary-color: #212529; /* Negro muy oscuro para fondos/texto principal */
+    --accent-color: #28a745; /* Verde vibrante para acentos y éxito */
+    --light-color: #f8f9fa; /* Gris muy claro para fondos suaves */
+    --dark-grey-text: #495057; /* Gris oscuro para texto secundario */
+    --border-color: #dee2e6; /* Borde sutil */
+    --white: #ffffff; /* Blanco puro */
+
+    /* Fuentes Elegidas */
+    --font-heading: 'Montserrat', sans-serif; /* Más audaz para títulos */
+    --font-body: 'Poppins', sans-serif; /* Clara y legible para el cuerpo */
+
+    /* Espaciado Modular (escala más uniforme) */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 1.5rem;   /* 24px */
+    --spacing-lg: 2.5rem;   /* 40px */
+    --spacing-xl: 4rem;     /* 64px */
+    --spacing-xxl: 6rem;    /* 96px */
+
+    /* Sombras Elevadas */
+    --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+    /* Transiciones Suaves y Rápidas */
+    --transition-fast: 0.2s ease-out;
+    --transition-medium: 0.3s ease-in-out;
+    --transition-slow: 0.5s ease-in-out;
+
+    /* Radio de Borde */
+    --border-radius: 0.3rem;
+}
+
+/* Reseteo y Estilos Generales - Mobile First */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--dark-grey-text);
+    background-color: var(--light-color);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--secondary-color);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+}
+
+h2.section-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+    padding-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h2.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) scaleX(0);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-medium);
+}
+
+section:hover > .section-title::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.btn {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all var(--transition-medium);
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-accent {
+    background-color: var(--accent-color);
+    color: var(--white);
+    border: 1px solid var(--accent-color);
+}
+
+.btn-accent:hover {
+    background-color: #218838;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-sm {
+    padding: 0.6rem 1rem;
+    font-size: 0.75rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ------------------------------------ */
+/* 2. Header y Navegación - CORRECCIÓN DE BOTONES */
+/* ------------------------------------ */
+
+/* css/styles.css */
+
+/* ... (Variables CSS y Reseteo Básico - NO CAMBIAN) ... */
+
+/* ------------------------------------ */
+/* 2. Header y Navegación - CORRECCIÓN DEFINITIVA */
+/* ------------------------------------ */
+
+.site-header {
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    padding: var(--spacing-sm) 0;
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.site-header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.site-title {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    font-weight: 700;
+}
+
+.site-title a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.site-title a:hover {
+    color: var(--primary-color);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+.main-nav ul li a {
+    color: var(--light-color);
+    font-weight: 600;
+    padding: var(--spacing-xs) 0;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none; /* Asegurar que no haya subrayado por defecto */
+}
+
+/* NUEVA IMPLEMENTACIÓN DE LA LÍNEA DE NAVEGACIÓN */
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    bottom: 0;
+    left: 0; /* La línea está al 100% pero escala a 0 */
+    transform: scaleX(0); /* Inicialmente invisible y sin ancho */
+    transform-origin: left; /* La escala se origina desde la izquierda */
+    transition: transform var(--transition-medium) ease-out; /* Animación de escala */
+}
+
+/* La línea solo aparece y se escala en hover o focus */
+.main-nav ul li a:hover::after,
+.main-nav ul li a:focus::after {
+    transform: scaleX(1); /* Se escala para ser visible */
+}
+
+
+/* ------------------------------------ */
+/* 3. Hero Section - MEJORA EN TEXTO Y ESTILO DE PALABRAS CLAVE */
+/* ------------------------------------ */
+
+.hero-section {
+    /* Mantenemos el estilo de fondo con textura y pseudo-elementos animados */
+    background: url('https://www.transparenttextures.com/patterns/lined-paper.png') repeat,
+                linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+    background-blend-mode: overlay;
+    background-color: var(--secondary-color);
+    background-attachment: fixed;
+
+    color: var(--white);
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--spacing-xxl) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    padding: var(--spacing-md);
+    max-width: 900px;
+    animation: fadeInScale 1s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.95);
+    z-index: 10;
+    position: relative;
+}
+
+/* Animaciones de formas flotantes (se mantienen igual) */
+.hero-section::before,
+.hero-section::after {
+    /* ... (código de los pseudo-elementos flotantes) ... */
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,123,255,0.3) 0%, rgba(0,123,255,0) 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-section::before {
+    width: 300px;
+    height: 300px;
+    top: 10%;
+    left: -5%;
+    animation: moveCircle1 15s linear infinite alternate;
+}
+
+.hero-section::after {
+    width: 200px;
+    height: 200px;
+    bottom: 5%;
+    right: -10%;
+    background: radial-gradient(circle, rgba(40,167,69,0.3) 0%, rgba(40,167,69,0) 70%);
+    animation: moveCircle2 18s linear infinite alternate-reverse;
+}
+
+@keyframes moveCircle1 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(20vw, 15vh); }
+}
+
+@keyframes moveCircle2 {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-15vw, -10vh); }
+}
+
+
+@keyframes fadeInScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hero-intro {
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--white);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    font-weight: 700;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-lg);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* NUEVO ESTILO PARA LAS PALABRAS CLAVE (HIGHLIGHT) */
+.hero-description .highlight {
+    color: var(--primary-color); /* Color principal para destacarlas */
+    font-weight: 700; /* Más negrita */
+    position: relative; /* Para el efecto de underline dinámico */
+    display: inline-block; /* Asegura que el span se comporte correctamente */
+    padding-bottom: 2px; /* Pequeño espacio para la línea */
+}
+
+/* Efecto de línea ondulante o de subrayado dinámico para las palabras clave */
+.hero-description .highlight::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px; /* Grosor de la línea */
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%); /* Gradiente en la línea */
+    border-radius: 2px;
+    transform: scaleX(0); /* Inicialmente oculta */
+    transform-origin: right; /* Crece de derecha a izquierda */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Curva de animación más suave */
+}
+
+.hero-description .highlight:hover::after {
+    transform: scaleX(1); /* Se expande */
+    transform-origin: left; /* Se expande de izquierda a derecha al hover */
+}
+
+/* ... (El resto de las secciones About, Projects, Skills, Contact, Footer, y Media Queries se mantienen igual) ... */
+
+/* css/styles.css */
+
+/* ... (Variables CSS, Reseteo, Header, Hero - NO CAMBIAN) ... */
+
+
+/* ------------------------------------ */
+/* 4. Acerca de mí (About Section) - MEJORADO Y DINÁMICO */
+/* ------------------------------------ */
+
+.about-section {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--white);
+    position: relative; /* Para posibles elementos decorativos */
+    overflow: hidden; /* Asegura que nada se desborde */
+}
+
+/* Efecto de fondo sutil o forma abstracta */
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Un gradiente sutil y casi transparente para romper el blanco plano */
+    background: radial-gradient(circle at top left, rgba(0, 123, 255, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at bottom right, rgba(40, 167, 69, 0.05) 0%, transparent 40%);
+    z-index: 1; /* Detrás del contenido */
+    pointer-events: none; /* No interfiere con interacciones */
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column; /* Apilado en móviles */
+    align-items: center;
+    gap: var(--spacing-xl); /* Mayor espacio entre imagen y texto */
+    text-align: center;
+    position: relative; /* Para que el contenido esté encima de ::before */
+    z-index: 2;
+}
+
+.profile-picture {
+    width: 220px; /* Un poco más grande para darle presencia */
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 7px solid var(--primary-color); /* Borde más grueso y prominente */
+    box-shadow: var(--shadow-lg); /* Sombra más fuerte */
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    /* Preparación para animación de entrada */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.2s; /* Retraso para que aparezca después del título */
+}
+
+.profile-picture:hover {
+    transform: scale(1.08) rotate(3deg); /* Más rotación y escala */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Sombra aún más fuerte al hover */
+}
+
+.about-text-wrapper { /* Estilos para el nuevo contenedor de texto y botón */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md); /* Espacio entre párrafos */
+    max-width: 800px; /* Limita el ancho para legibilidad */
+    text-align: left; /* Alineación de texto por defecto a la izquierda */
+    /* Preparación para animación de entrada */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.4s; /* Retraso para que aparezca después de la imagen */
+}
+
+.about-content p {
+    font-size: 1.05rem; /* Ligeramente más grande */
+    line-height: 1.8;
+    color: var(--dark-grey-text);
+    margin-bottom: 0; /* Controlamos el espacio con gap en el wrapper */
+}
+
+/* Destacar la primera frase o párrafo si lo deseas (opcional) */
+/* .about-text-wrapper p:first-of-type {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+} */
+
+.btn-about-cv { /* Estilo específico para el botón de CV */
+    margin-top: var(--spacing-md); /* Espacio superior */
+    align-self: center; /* Centrar en móviles si el wrapper es flex column */
+    font-size: 1rem;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    /* Preparación para animación de entrada */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.6s; /* Retraso para que aparezca después del texto */
+}
+
+/* Animación de entrada para elementos */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ... (El resto de las secciones Projects, Skills, Contact, Footer se mantienen igual) ... */
+
+/* ------------------------------------ */
+/* Media Queries (Desktop y Tablet) - AJUSTES PARA ABOUT */
+/* ------------------------------------ */
+
+@media (min-width: 768px) {
+    /* ... (Estilos de media query anteriores para otras secciones) ... */
+
+    .about-content {
+        flex-direction: row; /* Lado a lado en pantallas grandes */
+        text-align: left;
+        align-items: flex-start; /* Alinea los elementos al inicio (arriba) */
+        justify-content: center; /* Centra el contenido horizontalmente */
+        gap: var(--spacing-xxl); /* Mayor espacio entre imagen y texto */
+    }
+
+    .profile-picture {
+        width: 300px; /* Más grande en desktop */
+        height: 300px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .about-text-wrapper {
+        text-align: left; /* Asegura que el texto esté alineado a la izquierda */
+        max-width: 65%; /* Ocupa la mayor parte del espacio restante */
+        align-items: flex-start; /* Asegura que el botón se alinee a la izquierda */
+    }
+
+    .about-content p {
+        font-size: 1.1rem; /* Ligeramente más grande en desktop */
+    }
+
+    .btn-about-cv {
+        align-self: flex-start; /* Alinea el botón a la izquierda en desktop */
+    }
+}
+
+@media (min-width: 1024px) {
+    /* ... (Estilos de media query anteriores para otras secciones) ... */
+
+    .profile-picture {
+        width: 350px; /* Aún más grande en monitores amplios */
+        height: 350px;
+    }
+    .about-content p {
+        font-size: 1.2rem;
+    }
+}
+
+/* css/styles.css */
+
+/* ... (Variables CSS, Reseteo, Header, Hero, About - NO CAMBIAN) ... */
+
+/* ------------------------------------ */
+/* 5. Proyectos (Projects Section) - ¡A OTRO NIVEL! */
+/* ------------------------------------ */
+
+.projects-section {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--light-color); /* Fondo claro para que las tarjetas resalten */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de fondo sutil o forma abstracta para esta sección */
+.projects-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    /* Un patrón geométrico sutil o un gradiente muy leve */
+    background: url('https://www.transparenttextures.com/patterns/cubes.png') repeat; /* O 'light-veneer', 'pyramid' */
+    opacity: 0.05; /* Muy sutil */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto en móviles */
+    gap: var(--spacing-xxl); /* Mayor espacio entre tarjetas para impacto */
+    position: relative; /* Asegura que la cuadrícula esté encima de ::before */
+    z-index: 2;
+}
+
+.project-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg); /* Sombra más pronunciada para un efecto flotante */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+    border: 1px solid var(--border-color);
+    cursor: pointer; /* Indica que la tarjeta es clickeable */
+
+    /* Preparación para animación de entrada (fade-in-up) */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    /* Cada tarjeta tendrá un pequeño retraso */
+}
+
+/* Animaciones de entrada para las tarjetas de proyectos */
+.project-card:nth-child(1) { animation-delay: 0.2s; }
+.project-card:nth-child(2) { animation-delay: 0.4s; }
+.project-card:nth-child(3) { animation-delay: 0.6s; }
+/* Añade más animation-delay si tienes más de 3 proyectos */
+
+
+.project-card:hover {
+    transform: translateY(-12px); /* Más levantamiento para mayor dinamismo */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Sombra más intensa al hover */
+}
+
+.project-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 280px; /* Altura generosa para la imagen */
+    background-color: #eee; /* Fondo de carga */
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-slow); /* Transición más lenta para el zoom */
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.1); /* Zoom más pronunciado en la imagen */
+}
+
+/* Overlay para indicar que la imagen es clickeable (Lightbox) */
+.project-image-wrapper::after {
+    content: '🔍 Ampliar Imagen'; /* Icono de lupa o texto descriptivo */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay oscuro */
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity var(--transition-medium);
+    pointer-events: none; /* No bloquear clics */
+}
+
+.project-card:hover .project-image-wrapper::after {
+    opacity: 1; /* Se muestra al pasar el ratón */
+}
+
+
+.project-info {
+    padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg); /* Más padding inferior */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-title {
+    font-size: 1.8rem; /* Título más grande y dominante */
+    margin-bottom: var(--spacing-xs);
+    color: var(--secondary-color); /* Color oscuro para mayor contraste y profesionalismo */
+    font-weight: 700; /* Más negrita */
+    transition: color var(--transition-fast);
+}
+
+.project-card:hover .project-title {
+    color: var(--primary-color); /* Cambia a color principal al hover */
+}
+
+.project-description {
+    font-size: 1rem; /* Ligeramente más grande */
+    color: var(--dark-grey-text);
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+    line-height: 1.7; /* Mejor legibilidad */
+}
+
+.project-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-lg); /* Más espacio antes de los botones */
+    justify-content: flex-start; /* Alinea los tags a la izquierda */
+}
+
+.tech-tag {
+    background-color: var(--primary-color); /* Color principal para los tags */
+    color: var(--white);
+    padding: 7px 14px; /* Un poco más de padding */
+    border-radius: 50px; /* Completamente redondo */
+    font-size: 0.85rem; /* Ligeramente más grande */
+    font-weight: 600;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast);
+}
+
+.tech-tag:hover {
+    background-color: var(--accent-color); /* Color acento al hover */
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.project-links {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    margin-top: auto; /* Empuja los enlaces al final de la tarjeta */
+    justify-content: flex-start; /* Alinea los botones a la izquierda */
+}
+
+.btn-project {
+    flex-grow: 1;
+    max-width: calc(50% - var(--spacing-sm) / 2); /* Dos botones por fila en móvil */
+    padding: var(--spacing-sm) var(--spacing-md); /* Ajuste de padding para botones pequeños */
+    font-size: 0.85rem;
+}
+
+/* ... (Resto de las secciones Skills, Contact, Footer y Media Queries se mantienen igual) ... */
+
+/* ------------------------------------ */
+/* Media Queries (Desktop y Tablet) - AJUSTES PARA PROYECTOS */
+/* ------------------------------------ */
+
+@media (min-width: 768px) {
+    /* ... (Estilos de media query anteriores para otras secciones) ... */
+
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* Dos columnas */
+        gap: var(--spacing-xxl);
+    }
+
+    .project-card {
+        flex-direction: column;
+    }
+
+    .project-image-wrapper {
+        height: 260px; /* Ajuste de altura en tablet */
+    }
+
+    .project-title {
+        font-size: 2rem;
+    }
+
+    .project-links {
+        justify-content: flex-start; /* Asegura alineación a la izquierda */
+    }
+
+    .btn-project {
+        max-width: 180px; /* Ancho fijo para los botones en desktop */
+        flex-grow: 0; /* No se expanden */
+    }
+}
+
+@media (min-width: 1024px) {
+    /* ... (Estilos de media query anteriores para otras secciones) ... */
+
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Tres columnas en pantallas grandes */
+        gap: var(--spacing-xxl);
+    }
+
+    .project-image-wrapper {
+        height: 300px; /* Altura más grande para imágenes atractivas */
+    }
+
+    .project-title {
+        font-size: 2.2rem; /* Título aún más grande en desktop */
+    }
+}
+
+/* css/styles.css */
+
+/* ... (Variables CSS, Reseteo, Header, Hero, About, Projects - NO CAMBIAN) ... */
+
+/* ------------------------------------ */
+/* 6. Habilidades (Skills Section) - ¡POTENCIADO! */
+/* ------------------------------------ */
+
+.skills-section {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--white); /* Fondo claro para que las habilidades resalten */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efecto de fondo sutil (patrón o formas) para esta sección */
+.skills-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Ejemplo de patrón de puntos */
+    background: url('https://www.transparenttextures.com/patterns/dot-grid.png') repeat; /* O 'noise', 'diagonal-stripes' */
+    opacity: 0.04; /* Muy sutil, apenas perceptible pero añade textura */
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-md); /* Espaciado entre tags */
+    margin-top: var(--spacing-xl);
+    position: relative; /* Asegura que la lista esté encima del ::before */
+    z-index: 2;
+}
+
+.skill-tag {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 25px; /* Un poco más de padding para que se vean más robustas */
+    border-radius: 50px; /* Completamente redondo */
+    font-size: 1.05rem; /* Ligeramente más grande y legible */
+    font-weight: 600;
+    box-shadow: var(--shadow-md); /* Sombra inicial más pronunciada */
+    transition: all var(--transition-medium); /* Transición suave para todos los cambios */
+    border: 2px solid var(--primary-color); /* Borde inicial sólido */
+    cursor: pointer; /* Indica interactividad */
+
+    /* Preparación para animación de entrada (escalonada) */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.7s ease-out forwards; /* Misma animación que en otras secciones */
+}
+
+/* Animación de entrada escalonada para las habilidades */
+.skill-tag:nth-child(1) { animation-delay: 0.1s; }
+.skill-tag:nth-child(2) { animation-delay: 0.2s; }
+.skill-tag:nth-child(3) { animation-delay: 0.3s; }
+.skill-tag:nth-child(4) { animation-delay: 0.4s; }
+.skill-tag:nth-child(5) { animation-delay: 0.5s; }
+.skill-tag:nth-child(6) { animation-delay: 0.6s; }
+.skill-tag:nth-child(7) { animation-delay: 0.7s; }
+.skill-tag:nth-child(8) { animation-delay: 0.8s; }
+/* Añade más animation-delay si tienes más habilidades */
+
+
+.skill-tag:hover {
+    background-color: var(--white); /* Fondo blanco al hover */
+    color: var(--primary-color); /* Texto en color primario */
+    transform: translateY(-8px) scale(1.05); /* Levantamiento más notorio y ligera escala */
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.4), 0 0 20px rgba(0, 123, 255, 0.2); /* Sombra con GLOW de primary-color */
+    border-color: var(--primary-color); /* Borde se mantiene para el efecto */
+}
+
+/* Opcional: Un segundo estilo de hover si quieres un brillo interno */
+/* .skill-tag:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-color: var(--primary-color);
+    position: relative;
+}
+
+.skill-tag:hover::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border-radius: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.3); // Brillo interno
+    opacity: 0;
+    animation: pulseBorder 1s infinite alternate;
+}
+
+@keyframes pulseBorder {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+} */
+
+
+/* ... (El resto de las secciones Contact, Footer y Media Queries se mantienen igual) ... */
+
+/* ------------------------------------ */
+/* Media Queries (Desktop y Tablet) - AJUSTES PARA SKILLS */
+/* ------------------------------------ */
+
+@media (min-width: 768px) {
+    /* ... (Estilos de media query anteriores para otras secciones) ... */
+
+    .skills-list {
+        gap: var(--spacing-lg); /* Mayor espacio entre habilidades en desktop */
+    }
+
+    .skill-tag {
+        font-size: 1.15rem; /* Un poco más grande en desktop */
+        padding: 14px 30px;
+    }
+}
+
+@media (min-width: 1024px) {
+    /* ... (Estilos de media query anteriores para otras secciones) ... */
+
+    .skills-list {
+        gap: var(--spacing-xl); /* Espacio aún mayor en pantallas grandes */
+    }
+
+    .skill-tag {
+        font-size: 1.2rem; /* Tamaño óptimo para pantallas muy grandes */
+        padding: 16px 35px;
+    }
+}
+
+/* css/styles.css */
+
+/* ... (Variables CSS, Reseteo, Header, Hero, About, Projects, Skills - NO CAMBIAN) ... */
+
+/* ------------------------------------ */
+/* 7. Contacto (Contact Section) - ¡TRANSFORMADO! */
+/* ------------------------------------ */
+
+.contact-section {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--dark-grey-text); /* Fondo más oscuro para crear contraste y atmósfera */
+    color: var(--white); /* Texto en blanco para contraste */
+    position: relative;
+    overflow: hidden;
+    /* Un gradiente sutil superpuesto en el fondo oscuro */
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #1a1e22 50%, var(--dark-grey-text) 100%);
+    background-size: 200% 200%; /* Permite una animación de gradiente sutil */
+    animation: backgroundShift 15s ease infinite alternate; /* Animación de fondo */
+}
+
+/* Animación de cambio de posición del fondo para un efecto sutil */
+@keyframes backgroundShift {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+/* Elementos decorativos abstractos en el fondo */
+.contact-section::before,
+.contact-section::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px); /* Desenfoque para un efecto de luz suave */
+    opacity: 0.3; /* Semitransparente */
+    pointer-events: none;
+    z-index: 1; /* Detrás del contenido */
+}
+
+.contact-section::before {
+    width: 250px;
+    height: 250px;
+    background: var(--primary-color);
+    top: 10%;
+    left: -5%;
+    animation: floatBlob 10s ease-in-out infinite alternate;
+}
+
+.contact-section::after {
+    width: 350px;
+    height: 350px;
+    background: var(--accent-color);
+    bottom: 5%;
+    right: -10%;
+    animation: floatBlob 12s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatBlob {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(20px, 30px) scale(1.05); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+
+
+.contact-intro {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.15rem; /* Un poco más grande */
+    color: var(--white); /* Texto en blanco para el fondo oscuro */
+    line-height: 1.7;
+    /* Animación de entrada */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+}
+
+.contact-form {
+    max-width: 650px; /* Un poco más ancho para una mejor estética */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-xxl); /* Mayor padding interno para un look premium */
+    background-color: var(--white); /* Fondo blanco para el formulario */
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg); /* Sombra más fuerte para efecto de tarjeta flotante */
+    border: 1px solid var(--border-color);
+    position: relative; /* Para z-index si se superpone con los blobs */
+    z-index: 10; /* Asegura que el formulario esté sobre los blobs de fondo */
+
+    /* Animación de entrada */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+}
+
+.contact-form label {
+    display: block; /* Asegura que la etiqueta esté en su propia línea */
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+    color: var(--secondary-color); /* Color de texto oscuro para etiquetas */
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: var(--spacing-md); /* Mayor padding para un look más moderno */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--secondary-color); /* Color de texto oscuro para inputs */
+    background-color: var(--light-color); /* Fondo ligeramente grisáceo para los inputs */
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Glow azul al enfocar */
+    outline: none;
+    background-color: var(--white); /* Fondo blanco al enfocar */
+}
+
+.contact-form textarea {
+    min-height: 180px; /* Un poco más alto para mensajes más largos */
+    resize: vertical;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: var(--spacing-md) !important;
+    font-size: 1.2rem; /* Botón de envío más grande y llamativo */
+    font-weight: 700;
+    margin-top: var(--spacing-md); /* Espacio extra sobre el botón */
+    box-shadow: var(--shadow-md); /* Sombra al botón */
+    /* Animación de entrada */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+.social-links {
+    text-align: center;
+    margin-top: var(--spacing-xxl);
+    /* Animación de entrada */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+.social-links p {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.15rem;
+    color: var(--white); /* Texto en blanco */
+    font-weight: 600;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 var(--spacing-md); /* Mayor espacio entre iconos */
+    font-size: 2.2rem; /* Iconos más grandes y visibles */
+    color: var(--white); /* Iconos blancos */
+    transition: transform var(--transition-medium), color var(--transition-medium);
+}
+
+.social-links a:hover {
+    transform: translateY(-8px) scale(1.1); /* Mayor levantamiento y escala */
+    color: var(--primary-color); /* Iconos en color primario al hover */
+    text-shadow: 0 0 15px rgba(0, 123, 255, 0.6); /* Sombra luminosa al hover */
+}
+
+/* ... (El resto del CSS, incluyendo el footer y las media queries generales, se mantiene igual) ... */
+
+
+/* ------------------------------------ */
+/* Media Queries (Desktop y Tablet) - AJUSTES PARA CONTACT */
+/* ------------------------------------ */
+
+@media (min-width: 768px) {
+    /* ... (Estilos de media query anteriores para otras secciones) ... */
+
+    .contact-intro {
+        font-size: 1.3rem;
+        margin-bottom: var(--spacing-xl);
+    }
+
+    .contact-form {
+        max-width: 700px; /* Más ancho en desktop */
+        padding: var(--spacing-xxl) var(--spacing-xxl) var(--spacing-xl); /* Ajuste de padding */
+    }
+
+    .btn-submit {
+        padding: var(--spacing-lg) !important; /* Botón aún más grande */
+        font-size: 1.3rem;
+    }
+
+    .social-links p {
+        font-size: 1.3rem;
+    }
+
+    .social-links a {
+        font-size: 2.8rem; /* Iconos aún más grandes */
+        margin: 0 var(--spacing-lg);
+    }
+}
+
+@media (min-width: 1024px) {
+    /* ... (Estilos de media query anteriores para otras secciones) ... */
+
+    .contact-form {
+        max-width: 800px; /* Máximo ancho en pantallas grandes */
+    }
+
+    .social-links a {
+        font-size: 3.2rem; /* Iconos enormes para impacto */
+    }
+}
+
+/* css/styles.css */
+
+/* ... (Variables CSS, Reseteo, Header, Hero, About, Projects, Skills, Contact - NO CAMBIAN) ... */
+
+/* ------------------------------------ */
+/* 8. Pie de Página (Site Footer) - ¡FINAL ATRACTIVO! */
+/* ------------------------------------ */
+
+.site-footer {
+    background-color: var(--secondary-color); /* Fondo oscuro principal del footer */
+    color: rgba(255, 255, 255, 0.8); /* Texto blanco ligeramente transparente */
+    padding: var(--spacing-lg) 0; /* Padding vertical generoso */
+    text-align: center;
+    font-size: 0.95rem; /* Un poco más grande para mejor legibilidad */
+    border-top: 6px solid; /* Borde superior más grueso */
+    border-image: linear-gradient(to right, var(--primary-color), var(--accent-color)); /* Gradiente en el borde superior */
+    border-image-slice: 1; /* Asegura que el gradiente se aplique correctamente */
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2); /* Sombra superior sutil para dar profundidad */
+    position: relative;
+    overflow: hidden;
+
+    /* Preparación para animación de entrada */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.2s; /* Un pequeño retraso al aparecer */
+}
+
+.site-footer .container {
+    padding: 0 var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs); /* Espacio entre líneas de texto si hay varias */
+    align-items: center;
+    justify-content: center;
+}
+
+.site-footer p {
+    margin-bottom: 0; /* Eliminar margen inferior por defecto de los párrafos */
+    font-weight: 400; /* Peso de fuente estándar */
+    letter-spacing: 0.5px; /* Ligeramente más espaciado para un look limpio */
+}
+
+.site-footer span.designer-name {
+    color: var(--primary-color); /* Resaltar tu nombre con el color primario */
+    font-weight: 600; /* Más negrita para tu nombre */
+    transition: color var(--transition-fast);
+}
+
+.site-footer span.designer-name:hover {
+    color: var(--accent-color); /* Cambio de color al hover para interactividad */
+}
+
+
+/* ------------------------------------ */
+/* Media Queries (Desktop y Tablet) - AJUSTES PARA FOOTER */
+/* ------------------------------------ */
+
+@media (min-width: 768px) {
+    /* ... (Estilos de media query anteriores para otras secciones) ... */
+
+    .site-footer {
+        padding: var(--spacing-xl) 0; /* Mayor padding en desktop */
+        font-size: 1rem; /* Tamaño de fuente ligeramente mayor */
+    }
+
+    .site-footer .container {
+        flex-direction: row; /* En una sola fila en desktop */
+        justify-content: center; /* Centrar el contenido */
+        gap: var(--spacing-md); /* Espacio entre los elementos de texto */
+    }
+
+    /* Opcional: Separador visual si hay múltiples elementos en el footer en desktop */
+    .site-footer p:not(:last-child)::after {
+        content: '|';
+        margin-left: var(--spacing-md);
+        color: rgba(255, 255, 255, 0.5);
+    }
+    .site-footer p:last-child::before { /* Para el "Diseñado por" */
+        content: '|';
+        margin-right: var(--spacing-md);
+        color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+@media (min-width: 1024px) {
+    /* ... (Estilos de media query anteriores para otras secciones) ... */
+
+    .site-footer {
+        padding: var(--spacing-xxl) 0; /* Padding aún mayor en pantallas grandes */
+    }
+}
+
+/* Media Queries (Tablet y Desktop) */
+
+@media (min-width: 768px) {
+    h2.section-title {
+        font-size: 2.8rem;
+    }
+
+    .site-header .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .main-nav ul {
+        flex-wrap: nowrap;
+        gap: var(--spacing-lg);
+    }
+
+    .hero-title {
+        font-size: 4.5rem;
+    }
+
+    .hero-description {
+        font-size: 1.4rem;
+    }
+
+    .about-content {
+        flex-direction: row;
+        text-align: left;
+        gap: var(--spacing-xl);
+    }
+
+    .profile-picture {
+        width: 280px;
+        height: 280px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .about-content p {
+        font-size: 1.1rem;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: var(--spacing-xxl);
+    }
+
+    .project-card {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 0;
+    }
+
+    h2.section-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-title {
+        font-size: 5.5rem;
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    }
+
+    .about-content {
+        gap: var(--spacing-xxl);
+    }
+
+    .about-content p {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* css/styles.css */
+
+/* ... (Todo tu CSS anterior) ... */
+
+
+/* ------------------------------------ */
+/* Lightbox para Proyectos */
+/* ------------------------------------ */
+
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo muy oscuro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Asegura que esté por encima de todo */
+    opacity: 0; /* Inicialmente oculto */
+    visibility: hidden; /* Inicialmente no interactivo */
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.lightbox-overlay.active {
+    opacity: 1; /* Muestra el lightbox */
+    visibility: visible;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%; /* Ancho máximo */
+    max-height: 90%; /* Alto máximo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.9); /* Empieza un poco pequeño */
+    transition: transform 0.3s ease-in-out;
+}
+
+.lightbox-overlay.active .lightbox-content {
+    transform: scale(1); /* Escala a tamaño normal al abrir */
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    border-radius: var(--border-radius); /* Bordes redondeados */
+    box-shadow: 0 0 30px rgba(0, 123, 255, 0.6); /* Sombra con glow azul */
+    object-fit: contain; /* Asegura que la imagen quepa bien */
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px; /* Separación de la parte superior */
+    right: 20px; /* Separación de la derecha */
+    background: none;
+    border: none;
+    font-size: 3rem; /* Tamaño grande para el ícono de cerrar */
+    color: var(--white);
+    cursor: pointer;
+    line-height: 1; /* Asegura que la 'x' no se vea cortada */
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    z-index: 10000; /* Por encima de la imagen */
+}
+
+.lightbox-close:hover {
+    color: var(--primary-color);
+    transform: rotate(90deg); /* Animación de rotación al cerrar */
+}
+
+/* Evitar el scroll del body cuando el lightbox está activo */
+body.no-scroll {
+    overflow: hidden;
+}
